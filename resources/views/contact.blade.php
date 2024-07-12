@@ -14,6 +14,13 @@
                                 {{ session('success') }}
                             </div>
                         @endif
+
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                        {{-- end alert --}}
                         <form method="POST" action="{{ route('sendEmail') }}">
                             @csrf
                             <div class="mb-3">
