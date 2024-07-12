@@ -3,52 +3,45 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\SerializesModels;
 
 class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    /**
+     * Create a new message instance.
+     */
+
+    // Attributi form
+
     public $name;
     public $email;
     public $message;
 
-    /**
-     * Create a new message instance.
-     */
     public function __construct(array $data)
     {
         $this->name = $data['name'];
         $this->email = $data['email'];
         $this->message = $data['message'];
-    }
-    public function build()
-    {
-        return $this->subject('Contact Mail')
-                    ->view('emails.contact')
-                    ->with([
-                        'name' => $this->name,
-                        'email' => $this->email,
-                        'message'=> $this->message
-                    ]);
-    }
 
+    }
 
     /**
      * Get the message envelope.
      */
-    // public function envelope(): Envelope
-    // {
-    //     return new Envelope(
-    //         subject: 'Contact Mail',
-    //         from: new Address($this->email),
-    //     );
-    // }
+    public function envelope(): Envelope
+    {
+        return new Envelope(
+            subject: 'Contact Mail',
+            from: new Address($this->email),
+        );
+    }
 
     /**
      * Get the message content definition.

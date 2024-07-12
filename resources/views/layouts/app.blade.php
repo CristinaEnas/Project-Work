@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Home') }}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @stack('styles')
@@ -22,7 +22,7 @@
                 <ul class="navbar-nav ml-auto">
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('sendEmail') }}">Contatti</a>
+                        <a class="nav-link" href="{{ route('email') }}">Contatti</a>
                     </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">Login</a>

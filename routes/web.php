@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmailController;
 
 /*
@@ -14,6 +15,7 @@ use App\Http\Controllers\EmailController;
 |
 */
 
+// rotta home prima pagina
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -23,13 +25,12 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-//rotta pagina contatti contatti (utente_info)
-// Route::get('/contact',  [HomeController::class, 'contatti'])->name('email');
-Route::get('/contact', function () {
+//rotta pagina contatti richiesta info (utente_info)
+Route::get('/contact', function(){
     return view('contact');
-    })->name('email');
-    
-Route::post('/sendemail', [EmailController::class, 'sendEmail'])->name('sendEmail');
+})->name('email');
+
+Route::post('/send-email', [EmailController::class, 'sendEmail'])->name('sendEmail');
 
 // rotta solo per chi è authenticato "preferiti";
 Route::middleware(['auth'])->group(function(){
@@ -37,3 +38,5 @@ Route::middleware(['auth'])->group(function(){
         return view('preferiti');
     })->name('preferiti');
 });
+
+// Rotte Sezione Admin
