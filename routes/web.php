@@ -16,9 +16,16 @@ use App\Http\Controllers\EmailController;
 */
 
 // rotta home prima pagina
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/albums', [HomeController::class, 'index'])->name('albums.index');
+Route::get('/albums/{album}', [HomeController::class, 'index'])->name('albums.show');
+
 
 // rotta home dopo la registrazione 
 Route::get('/home', function () {
@@ -38,5 +45,7 @@ Route::middleware(['auth'])->group(function(){
         return view('preferiti');
     })->name('preferiti');
 });
+
+
 
 // Rotte Sezione Admin

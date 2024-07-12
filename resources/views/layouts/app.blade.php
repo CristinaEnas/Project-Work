@@ -46,9 +46,13 @@
             </div>
         </nav>
     </header>
+
+    
     <main class="py-4">
         @yield('content')
     </main>
+
+
     <footer>
         <div class="container">
             <p class="text-center">&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}. All rights reserved.
