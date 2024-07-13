@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
 
         $albums = Album::all();
-        return view('home', compact('albums'));
+        return view('albums.index', compact('albums'));
         
     }
 
@@ -41,8 +41,16 @@ class HomeController extends Controller
      */
     public function show(string $id)
     {
-        // 
+        // trova l'album con questo id
+        $album = Album::find($id);
+        // Debugging
+        if (!$album) {
+            return redirect()->route('albums.index')->with('error', 'Album non trovato');
+        }
+        return view('albums.show', compact('album'));
     }
+       
+    
 
     /**
      * Show the form for editing the specified resource.

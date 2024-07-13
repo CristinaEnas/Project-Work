@@ -22,6 +22,9 @@
                 <ul class="navbar-nav ml-auto">
                     @guest
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('albums.index') }}">Album</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('email') }}">Contatti</a>
                     </li>
                         <li class="nav-item">

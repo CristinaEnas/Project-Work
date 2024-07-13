@@ -23,8 +23,9 @@ use App\Http\Controllers\EmailController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+//rotta per visualizzare gli elbum e un singolo album
 Route::get('/albums', [HomeController::class, 'index'])->name('albums.index');
-Route::get('/albums/{album}', [HomeController::class, 'index'])->name('albums.show');
+Route::get('/albums/{album}', [HomeController::class, 'show'])->name('albums.show');
 
 
 // rotta home dopo la registrazione 
