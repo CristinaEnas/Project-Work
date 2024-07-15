@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        {{-- @dd($tracks) ok ma non visualizza gli attributi --}}
+        {{-- @dd($tracks)  --}}
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1>Sezione Brani </h1>
