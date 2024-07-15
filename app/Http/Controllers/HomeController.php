@@ -16,6 +16,7 @@ class HomeController extends Controller
         return view('albums.index', compact('albums'));
         
     }
+    
 
     
 

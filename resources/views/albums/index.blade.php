@@ -14,7 +14,12 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Titolo: {{ $album->name}} </h5>
-                            <h5 class="card-title">Artista: {{ $album->artist_id}} </h5>
+                            <h5 class="card-title">Artista:
+                            @if ($album->artist)
+                                {{ $album->artist->name }}
+                            @else
+                                 <h2>Artista: Non Trovato </h2>
+                            @endif </h5>
                             <h5 class="card-title">Anno di pubblicazione: {{ $album->year}} </h5>
                             <a href=" {{route('albums.show', $album->id)}} " class="btn btn-primary"> Mostra dettagli</a>
                         </div>

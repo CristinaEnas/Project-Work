@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Lista Albums')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -20,5 +22,42 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div>
+
+        <h1>Lista degli album</h1>
+        <a href="">Inserisci un nuovo Album</a>
+        {{-- @dd($albums) ok --}}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Titolo</th>
+                    <th scope="col">Artista</th>
+                    <th scope="col">Anno</th>
+                    <th scope="col">Poster</th>
+                    <th scope="col">Operazioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($albums as $album)
+                {{-- @dd($album) ok--}}
+                    <tr>
+                        <th scope="row"> {{$album->name}} </th>
+                        <td> {{$album->artist_id}} </td>
+                        <td> {{$album->year}} </td>
+                        <td> {{$album->poster}} </td>
+                        <td>
+                            <a href="">Modifica</a>
+                            <form action="">
+                                <input type="submit" value="Elimina">
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                
+            </tbody>
+        </table>
+
     </div>
 @endsection

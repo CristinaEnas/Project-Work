@@ -17,10 +17,15 @@
             {{ session('error') }}
         </div>
     @endif
-        <h2>Titolo: {{ $album->name }}</h2>
-        <h2>Artista: {{$album->artist->name}} </h2>
-        <h2>Anno publicazione: {{ $album->year }}</h2>
-
-
+    <h2>Titolo: {{ $album->name }}</h2>
+    @if ($album->artist)
+        {{ $album->artist->name }}
+    @else
+     <h2>Artista: Non Trovato </h2>
+    @endif
     
+    <h2>Anno publicazione: {{ $album->year }}</h2>
+
+
+
 @endsection
