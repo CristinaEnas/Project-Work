@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\TrackController;
-
+use App\Models\Album;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +66,6 @@ Route::get('admin/tracks', [TrackController::class, 'index'])->name('admin.track
 Route::get('admin/albums', [AlbumController::class, 'index'])->name('admin.albums.index');
 Route::get('admin/artists', [ArtistController::class, 'index'])->name('admin.artists.index');
 Route::get('admin/genres', [GenreController::class, 'index'])->name('admin.genres.index');
+
+Route::get('/admin/create-album', [AlbumController::class, 'create'])->name('admin.albums.create');
+Route::post('/admin/albums', [AlbumController::class, 'store'])->name('admin.albums.store');

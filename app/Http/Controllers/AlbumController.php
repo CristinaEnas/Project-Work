@@ -23,7 +23,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.albums.create');
     }
 
 
@@ -33,7 +33,25 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request); ok
+
+        //validazione
+        $request ->validate([
+
+                'name' => 'required|string|min:3|max:255',
+                'artist_id' => 'required|exists:artist,id',
+                'anno' => 'required|integer|min:1900|max:' . date('Y'),
+                // 'poster'=> ''
+            ]);
+        
+        $album = new ALbum;
+        $album->name = $request->name;
+        $album->artist_id = $request->artist_id;
+        $album->year= $request->year;
+        $album->poster = $request->poster;
+
+        $album->save();
+        return redirect()->route('admin.albums.index');
     }
 
 

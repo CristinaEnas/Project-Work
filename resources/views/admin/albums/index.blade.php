@@ -27,7 +27,7 @@
     <div>
 
         <h1>Lista degli album</h1>
-        <a href="">Inserisci un nuovo Album</a>
+        <a href=" {{ route('admin.albums.create') }} ">Inserisci un nuovo Album</a>
         {{-- @dd($albums) ok --}}
         <table class="table">
             <thead>

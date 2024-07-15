@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Album extends Model
 {
     use HasFactory;
+    protected $table = 'albums';
     protected $fillable = ['name', 'year', 'poster', 'artist_id'];
 
     public function tracks(){
