@@ -29,7 +29,7 @@
                     <div class="card-body">
                       <h5 class="card-title"> Titolo Brano: {{$track->title}} </h5>
                       <h6 class="card-subtitle mb-2 text-body-secondary">Album: {{$track->album_id}} </h6>
-                      <p class="card-text">Artista: {{$track->artist->name}} </p>
+                      <p class="card-text">Artista:  </p>
                     </div>
                   </div>
             </div>

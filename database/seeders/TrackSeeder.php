@@ -23,5 +23,6 @@ class TrackSeeder extends Seeder
 
         $this->call(ArtistTrackSeeder::class);
         $this->call(TrackGenreSeeder::class);
+        $this->call(AlbumArtistSeeder::class);
     }
 }
