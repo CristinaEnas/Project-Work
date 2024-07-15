@@ -25,11 +25,12 @@
             @foreach($tracks as $track)
             {{-- @dd($track) ok --}}
             <div class="col-md-4 mb4">
-                <div class="card" style="width: 18rem;">
+                <div class="card m-3" style="width: 18rem;">
                     <div class="card-body">
                       <h5 class="card-title"> Titolo Brano: {{$track->title}} </h5>
-                      <h6 class="card-subtitle mb-2 text-body-secondary">Album: {{$track->album_id}} </h6>
-                      <p class="card-text">Artista:  </p>
+                      <h6 class="card-subtitle mb-2 text-body-secondary">Album: {{$track->album->name}} </h6>
+                      {{-- <p class="card-text">Artista: </p> --}}
+                      <a href=""> Mostra Dettagli </a>
                     </div>
                   </div>
             </div>

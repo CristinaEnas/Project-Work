@@ -2,7 +2,7 @@
 
 @section('title', 'Album')
 @section('content')
-    {{-- @dd(album) non visualizza il dd ma funziona  -.-  --}}
+    @dd($album)
     <h1>Pagina dettaglio album</h1>
     @if (session('success'))
         <div class="alert alert-success">

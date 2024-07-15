@@ -14,6 +14,12 @@ class TrackController extends Controller
     {
         $tracks = Track::all();
         return view('admin.tracks.index', compact('tracks'));
+
+        $tracks = Track::with('artist')->get();
+        return view('tracks.index', compact('tracks'));
+
+        $tracks = Track::with('album')->get();
+        return view('tracks.index', compact('tracks'));
     }
 
     /**
@@ -37,7 +43,7 @@ class TrackController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
