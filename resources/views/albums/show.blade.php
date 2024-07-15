@@ -2,8 +2,9 @@
 
 @section('title', 'Album')
 @section('content')
-    @dd($album)
-    <h1>Pagina dettaglio album</h1>
+    {{-- @dd($album) --}}
+    <h1>Pagina dettaglio: </h1>
+    <h3>{{ $album->name }}</h3>
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -15,11 +16,11 @@
             {{ session('error') }}
         </div>
     @endif
-
-    @if ($album)
+    
         <h2>Titolo: {{ $album->name }}</h2>
-        <p>Anno publicazione: {{ $album->year }}</p>
-    @else
-        <p>Album non trovato.</p>
-    @endif
+        <h2>Artista: {{$album->artist->name}} </h2>
+        <h2>Anno publicazione: {{ $album->year }}</h2>
+        
+
+    
 @endsection

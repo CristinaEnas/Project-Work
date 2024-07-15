@@ -43,7 +43,7 @@ class TrackController extends Controller
      */
     public function show(string $id)
     {
-        
+        $track = Track::find($id);
     }
 
     /**

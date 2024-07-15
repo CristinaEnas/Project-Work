@@ -33,5 +33,20 @@ class AlbumArtistSeeder extends Seeder
                 ]);
             }
         }
+        foreach ($artists as $artist) {
+            if ($artist->albums()->exists()) {
+                continue;
+            }
+
+            $numberAlbums = rand(1, 10); 
+            $selectedAlbums = $albums->random($numberAlbums);
+
+            foreach ($selectedAlbums as $album) {
+                $artist->albums()->attach($album->id, [
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+            }
+        }
     }
 }

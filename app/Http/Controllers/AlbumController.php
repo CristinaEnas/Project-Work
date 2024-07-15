@@ -43,7 +43,15 @@ class AlbumController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // album
+        $album = Album::find($id);
+        return view('albums.show', compact('album'));
+        // artisti
+        $album = Album::with('artists')->findOrFail($id);
+        return view('albums.show', compact('album'));
+        // tracce - brani
+        $album = Album::with('tracks')->findOrFail($id);
+        return view('albums.show', compact('album'));
     }
 
     /**

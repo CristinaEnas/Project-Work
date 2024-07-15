@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Album;
 use Carbon\Carbon;
 use App\Models\Track;
 use App\Models\Artist;
@@ -17,6 +18,7 @@ class ArtistTrackSeeder extends Seeder
     {
         $tracks = Track::all();
         $artists = Artist::all();
+        $albums = Album::all();
 
         foreach($tracks as $track){
             if($track->artists()->exists()){
@@ -29,6 +31,22 @@ class ArtistTrackSeeder extends Seeder
                 $track->artists()->attach($artist->id, [
                     'created_at'=> Carbon::now(),
                     'updated_at'=> Carbon::now()
+                ]);
+            }
+        }
+
+        foreach ($albums as $album) {
+            if ($album->artists()->exists()) {
+                continue;
+            }
+
+            $numberArtists = rand(1, 10); 
+            $selectedArtists = $artists->random($numberArtists);
+
+            foreach ($selectedArtists as $artist) {
+                $album->artists()->attach($artist->id, [
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
                 ]);
             }
         }

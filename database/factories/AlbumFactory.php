@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Artist;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class AlbumFactory extends Factory
 {
+
     /**
      * Define the model's default state.
      *
@@ -23,7 +25,8 @@ class AlbumFactory extends Factory
         return [
             'name'=>fake()->name(), 
             'year'=>fake()->year(), 
-            'poster'=>$posterUrl
+            'poster'=>$posterUrl,
+            'artist_id' => Artist::factory(), // genera automaticamente un artista associato
         ];
     }
 }

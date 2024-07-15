@@ -9,7 +9,7 @@
         <h1>Questa è la pagina dei Album</h1>
          <div class="row">
             @foreach ($albums as $album)
-                 {{-- @dd($album) --}}
+                 @dd($album)
                 <div class="col-md-4 mb-4">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
